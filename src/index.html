@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FrostTech - Soluções em Refrigeração</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/95 backdrop-blur"
+    >
+      <div
+        class="container mx-auto flex h-16 items-center justify-between px-4"
+      >
+        <a href="index.html" class="flex items-center gap-2">
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-900"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="text-white"
+            >
+              <line x1="2" x2="22" y1="12" y2="12" />
+              <line x1="12" x2="12" y1="2" y2="22" />
+              <path d="m20 16-4-4 4-4" />
+              <path d="m4 8 4 4-4 4" />
+              <path d="m16 4-4 4-4-4" />
+              <path d="m8 20 4-4 4 4" />
+            </svg>
+          </div>
+          <span class="text-xl font-bold text-gray-900">FrostTech</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a
+            href="index.html"
+            class="text-sm font-medium transition-colors relative pb-1 text-amber-900 active"
+            data-page="home"
+          >
+            Home
+          </a>
+          <a
+            href="sobre.html"
+            class="text-sm font-medium transition-colors relative pb-1 text-gray-900 hover:text-amber-900"
+            data-page="sobre"
+          >
+            Sobre
+          </a>
+          <a
+            href="contatos.html"
+            class="text-sm font-medium transition-colors relative pb-1 text-gray-900 hover:text-amber-900"
+            data-page="contatos"
+          >
+            Contatos
+          </a>
+          <a
+            href="contatos.html"
+            class="ml-4 inline-flex items-center justify-center rounded-md text-sm font-medium bg-amber-900 text-white hover:bg-amber-800 h-9 px-4 py-2"
+          >
+            Solicitar Orçamento
+          </a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden" aria-label="Toggle menu">
+          <svg
+            id="menu-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+          <svg
+            id="close-icon"
+            class="hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18" />
+            <path d="m6 6 12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-gray-200 bg-white"
+      >
+        <nav class="container mx-auto flex flex-col gap-4 px-4 py-6">
+          <a
+            href="index.html"
+            class="text-sm font-medium transition-colors px-3 py-2 rounded-md bg-amber-900/10 text-amber-900 font-semibold"
+            data-page="home"
+          >
+            Home
+          </a>
+          <a
+            href="sobre.html"
+            class="text-sm font-medium transition-colors px-3 py-2 rounded-md text-gray-900 hover:text-amber-900"
+            data-page="sobre"
+          >
+            Sobre
+          </a>
+          <a
+            href="contatos.html"
+            class="text-sm font-medium transition-colors px-3 py-2 rounded-md text-gray-900 hover:text-amber-900"
+            data-page="contatos"
+          >
+            Contatos
+          </a>
+          <a
+            href="contatos.html"
+            class="inline-flex items-center justify-center rounded-md text-sm font-medium bg-amber-900 text-white hover:bg-amber-800 h-10 px-4 py-2"
+          >
+            Solicitar Orçamento
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+      <!-- Hero Section -->
+      <section class="relative overflow-hidden bg-amber-900 py-20 md:py-32">
+        <div
+          class="absolute inset-0 bg-cover bg-center opacity-10"
+          style="
+            background-image: url('assets/images/industrial-refrigeration-equipment.jpg');
+          "
+        ></div>
+        <div class="container relative mx-auto px-4">
+          <div class="mx-auto max-w-3xl text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
+              Soluções Completas em Refrigeração
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+              Tecnologia de ponta e expertise para manter seu negócio sempre na
+              temperatura ideal
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="contatos.html"
+                class="inline-flex items-center justify-center rounded-md text-base font-medium bg-amber-700 text-white hover:bg-amber-600 h-11 px-8"
+              >
+                Solicitar Orçamento
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="ml-2"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="sobre.html"
+                class="inline-flex items-center justify-center rounded-md text-base font-medium bg-white/10 border border-white/20 text-white hover:bg-white/20 h-11 px-8"
+              >
+                Conheça Nossa História
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section class="py-20 md:py-24">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Nossos Serviços
+            </h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Oferecemos soluções completas para todas as suas necessidades de
+              refrigeração
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div
+              class="border border-gray-200 rounded-lg p-6 hover:border-amber-900 hover:shadow-xl transition-all duration-300"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-900/10 mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-amber-900"
+                >
+                  <line x1="2" x2="22" y1="12" y2="12" />
+                  <line x1="12" x2="12" y1="2" y2="22" />
+                  <path d="m20 16-4-4 4-4" />
+                  <path d="m4 8 4 4-4 4" />
+                  <path d="m16 4-4 4-4-4" />
+                  <path d="m8 20 4-4 4 4" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Instalação
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Instalação profissional de sistemas de refrigeração residencial,
+                industrial e comercial
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-lg p-6 hover:border-amber-900 hover:shadow-xl transition-all duration-300"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-700/10 mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-amber-700"
+                >
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Manutenção
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Manutenção preventiva(PMOC) e corretiva para garantir o
+                funcionamento ideal
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-lg p-6 hover:border-amber-900 hover:shadow-xl transition-all duration-300"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-900/10 mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-amber-900"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                Emergência 24h
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                Atendimento emergencial disponível 24 horas por dia, 7 dias por
+                semana
+              </p>
+            </div>
+
+            <div
+              class="border border-gray-200 rounded-lg p-6 hover:border-amber-900 hover:shadow-xl transition-all duration-300"
+            >
+              <div
+                class="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-700/10 mb-4"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-amber-700"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Garantia</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Garantia estendida em todos os serviços e equipamentos
+                instalados
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="py-20 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Por que escolher a FrostTech?
+              </h2>
+              <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                Somos referência no mercado de refrigeração, oferecendo soluções
+                personalizadas e tecnologia de ponta.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-amber-900 flex-shrink-0 mt-0.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Mais de 20 anos de experiência
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Expertise comprovada em projetos de todos os portes
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-amber-900 flex-shrink-0 mt-0.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Equipe técnica certificada
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Profissionais qualificados e em constante atualização
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-amber-900 flex-shrink-0 mt-0.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Tecnologia de ponta
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Equipamentos modernos e eficientes energeticamente
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="text-amber-900 flex-shrink-0 mt-0.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <div>
+                    <h3 class="font-semibold text-gray-900 mb-1">
+                      Atendimento personalizado
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                      Soluções customizadas para cada necessidade
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden"
+            >
+              <img
+                src="assets/images/refrigeration-technician-working.jpg"
+                alt="Técnico trabalhando em sistema de refrigeração"
+                class="object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-20 md:py-24">
+        <div class="container mx-auto px-4">
+          <div class="bg-amber-900 rounded-lg p-8 md:p-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+              Pronto para começar seu projeto?
+            </h2>
+            <p
+              class="text-lg text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed"
+            >
+              Entre em contato conosco e receba um orçamento personalizado para
+              suas necessidades
+            </p>
+            <a
+              href="contatos.html"
+              class="inline-flex items-center justify-center rounded-md text-base font-medium bg-amber-700 text-white hover:bg-amber-600 h-11 px-8"
+            >
+              Fale Conosco Agora
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-2"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 bg-gray-50">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <!-- Company Info -->
+          <div class="space-y-4">
+            <h3 class="text-lg font-bold text-gray-900">FrostTech</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">
+              Especialistas em soluções de refrigeração residencial, industrial
+              e comercial há mais de 20 anos.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-4">
+            <h4 class="text-sm font-semibold text-gray-900">Links Rápidos</h4>
+            <nav class="flex flex-col gap-2">
+              <a
+                href="index.html"
+                class="text-sm text-gray-600 hover:text-amber-900 transition-colors"
+              >
+                Home
+              </a>
+              <a
+                href="sobre.html"
+                class="text-sm text-gray-600 hover:text-amber-900 transition-colors"
+              >
+                Sobre Nós
+              </a>
+              <a
+                href="contatos.html"
+                class="text-sm text-gray-600 hover:text-amber-900 transition-colors"
+              >
+                Contatos
+              </a>
+            </nav>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-4">
+            <h4 class="text-sm font-semibold text-gray-900">Contato</h4>
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center gap-2 text-sm text-gray-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+                <span>(92) 3456-7890</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-gray-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <span>contato@frosttech.com.br</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-gray-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Manaus, Am</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="space-y-4">
+            <h4 class="text-sm font-semibold text-gray-900">Redes Sociais</h4>
+            <div class="flex gap-3">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 hover:bg-amber-900 hover:text-white transition-colors"
+                aria-label="Facebook"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 hover:bg-amber-900 hover:text-white transition-colors"
+                aria-label="Instagram"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex h-9 w-9 items-center justify-center rounded-lg bg-gray-200 hover:bg-amber-900 hover:text-white transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                  />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <p class="text-center text-sm text-gray-600">
+            © <span id="current-year"></span> FrostTech. Todos os direitos
+            reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js" type="module"></script>
+  </body>
+</html>
