@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Tailwind config */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+/* Marca visual do link ativo */
+.nav-link.active{                                                              
+position: relative;
+color: #92400e; /* amber-900 */
+font-weight: 600;
+}
+.mobile-nav-link.active {
+  background-color: #78350F1A;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 3px;
+  width: 100%;
+  background: #92400e; /* amber-900 */
+  border-radius: 4px;
+  opacity: 1;
+  transform: scaleX(1);
+  transition: transform .25s, opacity .25s;
+}
